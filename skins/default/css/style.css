@@ -27,6 +27,11 @@ position: absolute;
 top: 0px;
 right: 0px;
 }
+#attribution2 {
+position: absolute;
+top: 0px;
+right: 0px;
+}
 
 #display {
 width: 100%;

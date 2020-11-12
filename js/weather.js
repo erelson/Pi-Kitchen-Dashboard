@@ -22,7 +22,9 @@
 
 	// Yahoo! query interval (milliseconds)
 	// Default is every 15 minutes. Be reasonable. Don't query Yahoo every 500ms.
-	var waitBetweenWeatherQueriesMS = 900000;
+	var waitBetweenWeatherQueriesMS = 600000;
+
+	var eventLocation;
 
 	// You're done!
 	/*********************************/
@@ -39,6 +41,7 @@
 		var icon = $('#currently .icon');
 		var desc = $('#currently .desc');
 		var temp = $('#currently .temp');
+		var events = $('#currently .events');
 
 		// Insert the current details. Icons may be changed by editing the icons array.
 		if (icon.length) {

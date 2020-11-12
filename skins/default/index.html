@@ -13,9 +13,16 @@
 
 		<!-- Template-specific styles -->
 		<link rel="stylesheet" type="text/css" href="css/style.css" />
+<script src="../../jquery-3.3.1.slim.min.js"></script>
+    <script>
+    function eventsReload() {
+      $("#includedContent").load("events.html");
+    };
+	setInterval(eventsReload, 60000);
+    </script>
 	</head>
 	<body>
-		<!-- 
+		<!--
 			Skinning the Pi Kitchen Dashboard is easy. Simply create an HTML
 			page, ensure that the two sections marked REQUIRED appear,
 			and place elements onto the page to be auto-populated. The rest
@@ -62,10 +69,22 @@
 		-->
 
 		<div id="wrapper">
+			<div id="attribution">
+				<!-- REQUIRED Eventful Attribution -->
+				<br><br>
+				<img src="http://api.eventful.com/images/powered/eventful_58x20.gif"
+				  alt="Local Events, Concerts, Tickets"><br>
+				<a href="http://eventful.com/">Events</a> by Eventful
+				<!-- REQUIRED Eventful! Attribution -->
+			</div>
 			<table id="display">
 				<tbody>
 					<tr>
-						<td id="currently" colspan="2">
+						<td colspan="2">
+							<div id="includedContent">x</div>
+							<span class="events"></span>
+						</td>
+						<td id="currently" colspan="1">
 							<!-- Current weather information -->
 							<a class="yahooLink" href="#" target="_blank">
 								<div id="currentlyWrapper">
@@ -75,15 +94,13 @@
 								</div>
 							</a>
 						</td>
-						<td colspan="3">
+						<td colspan="2">
 							<!-- Current date and time information -->
 							<div id="time"></div>
 							<div id="date"></div>
 						</td>
-					</tr>
-					<tr>
-						<!-- Upcoming forecasts -->
-						<td class="forecast" id="forecast1">
+					</tr> <tr>
+						<!-- Upcoming forecasts --> <td class="forecast" id="forecast1">
 							<a class="yahooLink" href="#" target="_blank">
 								<div class="day"></div>
 								<div class="icon"></div>
