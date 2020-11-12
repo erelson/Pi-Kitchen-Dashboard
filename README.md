@@ -30,6 +30,7 @@ This project turns your monitor and Raspberry Pi into a simple, skinnable time a
 + Monitor
 + Adapter to hook said Raspberry Pi to said monitor
 + Internet connection
++ Obtain Eventful API key and put it in environment variable `EVENTFUL_KEY`
 
 ## <a name="instructions"></a>Instructions
 
