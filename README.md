@@ -16,7 +16,7 @@ seem to let jquery load HTML from another file.  But Firefox would. But I couldn
 to run at startup....
 - Now I know a bit more: I use `~/.config/autostart/pi-kitchen-dashboard.desktop` to run a bash
 script `~/Desktop/launch_hmi_dashboard.bash` which (1) launches Firefox, (2) waits for Firefox
-window to open, and (3) uses xdotool to put full-screen and put the mouse cursor off to the side.
+window to open, and (3) uses `xdotool` to put full-screen and put the mouse cursor off to the side.
 - After updating the Firefox version in late 2020, dynamic HTML insertion stopped working. This
 was fixed by disabling in Firefox's about:config, the property `privacy.file_unique_origin`.
 - Also, the Yahoo Weather that the upstream project's README refers to is now replaced by using
@@ -25,6 +25,7 @@ OpenWeather. Easy enough. There's a few references to Yahoo that are still there
 A laundry list of things needed in setup that are left as exercises to the user:
 
 + Clone this repo, e.g. to `~/repos/Pi-Kitchen_Dashboard`
++ Install `xdotool` and `wmctrl` via your package manager
 + Obtain OpenWeather API key and put it in `js/weather.js`
 + Obtain Eventful API key and put it in environment variable `EVENTFUL_KEY`
 + Set up a cron job to run `events/get_events.py` and copy its output to path mentioned above
