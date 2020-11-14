@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Exec=bash $HOME/Desktop/launch_hmi_dashboard.bash
+Hidden=false
+X-MATE-Autostart-enabled=true
+Name[en]=Weather
+Name=Weather
+Comment[en]=Weather display page in Firefox
+Comment=Weather display page in Firefox

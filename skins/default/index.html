@@ -13,13 +13,16 @@
 
 		<!-- Template-specific styles -->
 		<link rel="stylesheet" type="text/css" href="css/style.css" />
-<script src="../../jquery-3.3.1.slim.min.js"></script>
-    <script>
-    function eventsReload() {
-      $("#includedContent").load("events.html");
-    };
-	setInterval(eventsReload, 60000);
-    </script>
+
+		<!-- Reference: ???? found this in 2018 somewhere... -->
+		<script src="../../jquery-3.3.1.slim.min.js"></script>
+		<script>
+		function eventsReload() {
+			$("#includedContent").load("events.html");
+		};
+		setInterval(eventsReload, 60000);
+		</script>
+
 	</head>
 	<body>
 		<!--
@@ -81,7 +84,7 @@
 				<tbody>
 					<tr>
 						<td colspan="2">
-							<div id="includedContent">x</div>
+							<div id="includedContent">Failed to load</div>
 							<span class="events"></span>
 						</td>
 						<td id="currently" colspan="1">

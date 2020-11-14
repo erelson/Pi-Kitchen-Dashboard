@@ -20,8 +20,8 @@
 	var formatTime = 'h:mm:ss a'
 	var formatDate = 'dddd, MMMM Do'
 
-	// Yahoo! query interval (milliseconds)
-	// Default is every 15 minutes. Be reasonable. Don't query Yahoo every 500ms.
+	// OpenWeather query interval (milliseconds)
+	// Default is every 15 minutes. Be reasonable. Don't query OpenWeather every 500ms.
 	var waitBetweenWeatherQueriesMS = 600000;
 
 	var eventLocation;
@@ -223,7 +223,7 @@
 		// Fetch the weather data for right now
 		queryOpenWeatherMap();
 
-		// Query Yahoo! at the requested interval for new weather data
+		// Query OpenWeather at the requested interval for new weather data
 		setInterval(function() {
 			queryOpenWeatherMap();
 		}, waitBetweenWeatherQueriesMS);
@@ -245,5 +245,6 @@
 				$('#date').html(moment().format(formatDate));
 			}
 		}, 1000);
+		  //window.alert("OK3");
 	});
 }());

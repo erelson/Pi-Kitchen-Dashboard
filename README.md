@@ -1,3 +1,37 @@
+# Modifications and notes
+##### Original README is after this section
+
+I'm running this in 2020, after initially setting up in 2018, but never being fully happy with
+some things at the time. After some more work, I think I'm now happy with the state of things!
+It's nothing fancy, and hardly modern...
+
+- I added event info for a nearby football stadium, so I know when traffic and parking might
+be bad.  This uses the Eventful API which seems to work pretty well.  I use the API via
+`get_events.py`, which generates `~/events.html`.
+- I modified the index.html to include this bit dynamically, with much help from Google.
+- A crontab job (i.e. `crontab -e` runs `get_events.py` and then copies `events.html` into
+`~/repos/Pi-Kitchen-Dashboard/skins/default/`.
+- Auto-starting at boot-up: I originally tried to use the Midori browser, but it wouldn't
+seem to let jquery load HTML from another file.  But Firefox would. But I couldn't get Firefox
+to run at startup....
+- Now I know a bit more: I use `~/.config/autostart/pi-kitchen-dashboard.desktop` to run a bash
+script `~/Desktop/launch_hmi_dashboard.bash` which (1) launches Firefox, (2) waits for Firefox
+window to open, and (3) uses xdotool to put full-screen and put the mouse cursor off to the side.
+- After updating the Firefox version in late 2020, dynamic HTML insertion stopped working. This
+was fixed by disabling in Firefox's about:config, the property `privacy.file_unique_origin`.
+- Also, the Yahoo Weather that the upstream project's README refers to is now replaced by using
+OpenWeather. Easy enough. There's a few references to Yahoo that are still there in upstream.
+
+A laundry list of things needed in setup that are left as exercises to the user:
+
++ Clone this repo, e.g. to `~/repos/Pi-Kitchen_Dashboard`
++ Obtain OpenWeather API key and put it in `js/weather.js`
++ Obtain Eventful API key and put it in environment variable `EVENTFUL_KEY`
++ Set up a cron job to run `events/get_events.py` and copy its output to path mentioned above
+(e.g. daily at 1am)
++ Put `autostart/launch_hmi_dashboard.bash` in `~/Desktop` (might need to check paths in script)
++ Put `pi-kitchen-dashbaord.desktop` in `~/.config/autostart`
+
 # Pi Kitchen Dashboard
 ##### Because thrift store monitors still need things to do.
 
@@ -30,7 +64,6 @@ This project turns your monitor and Raspberry Pi into a simple, skinnable time a
 + Monitor
 + Adapter to hook said Raspberry Pi to said monitor
 + Internet connection
-+ Obtain Eventful API key and put it in environment variable `EVENTFUL_KEY`
 
 ## <a name="instructions"></a>Instructions
 
