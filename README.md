@@ -40,6 +40,8 @@ A laundry list of things needed in setup that are left as exercises to the user:
 + Create a boot-time crontab job like:
 `@reboot sleep 60 && DISPLAY=:0 python3 $HOME/repos/Pi-Kitchen-Dashboard/screen_wake_with_IR.py &> $HOME/output-screen_wake_with_IR.py.log`
 
+![Example Screenshot](/images/weather_events_dashboard.png)
+
 # Pi Kitchen Dashboard
 ##### Because thrift store monitors still need things to do.
 
