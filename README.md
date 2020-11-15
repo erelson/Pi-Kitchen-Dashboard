@@ -21,17 +21,24 @@ window to open, and (3) uses `xdotool` to put full-screen and put the mouse curs
 was fixed by disabling in Firefox's about:config, the property `privacy.file_unique_origin`.
 - Also, the Yahoo Weather that the upstream project's README refers to is now replaced by using
 OpenWeather. Easy enough. There's a few references to Yahoo that are still there in upstream.
+- My setup is near the front door.  To make the screen auto wake, I added a PIR sensor to
+pin 8, with an indicator LED on pin 10.
+- Script `screen_wake_with_IR.py` monitors the PIR sensor and triggers the screen to wake up.
+It also sets the screen to turn off after 2 minutes.
 
 A laundry list of things needed in setup that are left as exercises to the user:
 
 + Clone this repo, e.g. to `~/repos/Pi-Kitchen_Dashboard`
 + Install `xdotool` and `wmctrl` via your package manager
++ Grab a jquery library version and match/update the reference to it in `index.html`
 + Obtain OpenWeather API key and put it in `js/weather.js`
 + Obtain Eventful API key and put it in environment variable `EVENTFUL_KEY`
 + Set up a cron job to run `events/get_events.py` and copy its output to path mentioned above
 (e.g. daily at 1am)
 + Put `autostart/launch_hmi_dashboard.bash` in `~/Desktop` (might need to check paths in script)
 + Put `pi-kitchen-dashbaord.desktop` in `~/.config/autostart`
++ Create a boot-time crontab job like:
+`@reboot sleep 60 && DISPLAY=:0 python3 $HOME/repos/Pi-Kitchen-Dashboard/screen_wake_with_IR.py &> $HOME/output-screen_wake_with_IR.py.log`
 
 # Pi Kitchen Dashboard
 ##### Because thrift store monitors still need things to do.
