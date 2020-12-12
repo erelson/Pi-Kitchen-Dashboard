@@ -118,6 +118,9 @@ font-size: 15vmin;
 font-size: 5vmin;
 color: #CCCCCC;
 }
+#includedAqi {
+font-size: 8vmin;
+}
 
 #currentlyWrapper {
 display: inline-block;

@@ -18,7 +18,8 @@
 		<script src="../../jquery-3.3.1.slim.min.js"></script>
 		<script>
 		function eventsReload() {
-			$("#includedContent").load("events.html");
+			$("#includedEvents").load("events.html");
+			$("#includedAqi").load("aqi.html");
 		};
 		setInterval(eventsReload, 60000);
 		</script>
@@ -84,7 +85,7 @@
 				<tbody>
 					<tr>
 						<td colspan="2">
-							<div id="includedContent">Failed to load</div>
+							<div id="includedEvents">Failed to load</div>
 							<span class="events"></span>
 						</td>
 						<td id="currently" colspan="1">
@@ -101,6 +102,8 @@
 							<!-- Current date and time information -->
 							<div id="time"></div>
 							<div id="date"></div>
+                            <br>
+                            <div id="includedAqi">AQI: -- No Data --</div>
 						</td>
 					</tr> <tr>
 						<!-- Upcoming forecasts --> <td class="forecast" id="forecast1">

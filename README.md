@@ -9,7 +9,10 @@ It's nothing fancy, and hardly modern...
 be bad.  This uses the Eventful API which seems to work pretty well.  I use the API via
 `get_events.py`, which generates `~/events.html`.
 - I modified the index.html to include this bit dynamically, with much help from Google.
-- A crontab job (i.e. `crontab -e` runs `get_events.py` and then copies `events.html` into
+- A pair of crontab jobs (i.e. `crontab -e`):
+  - runs `get_events.py` and then copies `events.html` into
+`~/repos/Pi-Kitchen-Dashboard/skins/default/`.
+  - runs `get_events.py` and then copies `events.html` into
 `~/repos/Pi-Kitchen-Dashboard/skins/default/`.
 - Auto-starting at boot-up: I originally tried to use the Midori browser, but it wouldn't
 seem to let jquery load HTML from another file.  But Firefox would. But I couldn't get Firefox
@@ -35,14 +38,21 @@ A laundry list of things needed in setup that are left as exercises to the user:
 + Obtain Eventful API key and put it in environment variable `EVENTFUL_KEY`
 + Set up a cron job to run `events/get_events.py` and copy its output to path mentioned above
 (e.g. daily at 1am)
++ Got a LaserEgg from Kaiterra?: Get an API key and put it in environment variable `KAITERRA_KEY`.
+  Also put the sensor's serial number in `LASEREGG_SERIAL1`.
++ Set up a cron job to run `air_quality/get_air_quality.py` and copy its output to path mentioned above
+(e.g. daily at 1am)
 + Put `autostart/launch_hmi_dashboard.bash` in `~/Desktop` (might need to check paths in script)
 + Put `pi-kitchen-dashbaord.desktop` in `~/.config/autostart`
-+ Create a boot-time crontab job like:
++ Add `SHELL=/bin/bash` to the top of your crontab.
++ Create a boot-time crontab job for motion detection like:
 `@reboot sleep 60 && DISPLAY=:0 python3 $HOME/repos/Pi-Kitchen-Dashboard/screen_wake_with_IR.py &> $HOME/output-screen_wake_with_IR.py.log`
++ Create another boot-time crontab job for air quality like:
+`@reboot cd $HOME/repos/Pi-Kitchen-Dashboard/skins/default && python3 $HOME/repos/Pi-Kitchen-Dashboard/air_quality/get_air_quality.py`
 
 ![Example Screenshot](/images/weather_events_dashboard.png)
 
-# Pi Kitchen Dashboard
+# Pi Kitchen Dashboard (Original README)
 ##### Because thrift store monitors still need things to do.
 
 This project turns your monitor and Raspberry Pi into a simple, skinnable time and weather dashboard for your kitchen. Want it in your living room? **Too bad.**
